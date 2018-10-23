@@ -76,7 +76,11 @@ namespace ChargifyNET
         /// <summary>
         /// A calculated tax charge
         /// </summary>
-        Tax
+        Tax,
+        /// <summary>
+        /// A charge for a subscription’s trial period.
+        /// </summary>
+        Trial
     }
 
     /// <summary>
