@@ -148,6 +148,12 @@ using Json;
                     case "gateway_order_id":
                         _gatewayOrderId = obj.GetJSONContentAsString(key);
                         break;
+                    case "period_range_start":
+                        _periodRangeStart = obj.GetJSONContentAsDateTime(key);
+                        break;
+                    case "period_range_end":
+                        _periodRangeEnd = obj.GetJSONContentAsDateTime(key);
+                        break;
                 }
             }
         }
@@ -204,6 +210,12 @@ using Json;
                         break;
                     case "gateway_order_id":
                         _gatewayOrderId = dataNode.GetNodeContentAsString();
+                        break;
+                    case "period_range_start":
+                        _periodRangeStart = dataNode.GetNodeContentAsDateTime();
+                        break;
+                    case "period_range_end":
+                        _periodRangeEnd = dataNode.GetNodeContentAsDateTime();
                         break;
                 }
             }
@@ -362,7 +374,25 @@ using Json;
         {
             get { return _gatewayOrderId; }
         }
-        private string _gatewayOrderId = string.Empty;        
+        private string _gatewayOrderId = string.Empty;
+
+        /// <summary>
+        /// The start date of the transaction period
+        /// </summary>
+        public DateTime PeriodRangeStart
+        {
+            get { return _periodRangeStart; }
+        }
+        private DateTime _periodRangeStart = DateTime.MinValue;
+
+        /// <summary>
+        /// The end date of the transaction period
+        /// </summary>
+        public DateTime PeriodRangeEnd
+        {
+            get { return _periodRangeEnd; }
+        }
+        private DateTime _periodRangeEnd = DateTime.MinValue;
 
         #endregion
 

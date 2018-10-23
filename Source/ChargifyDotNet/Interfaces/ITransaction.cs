@@ -192,5 +192,15 @@ namespace ChargifyNET
         /// </summary>
         string GatewayOrderID { get; }
 
+        /// <summary>
+        /// The start date of the transaction period
+        /// </summary>
+        DateTime PeriodRangeStart { get; }
+
+        /// <summary>
+        /// The end date of the transaction period
+        /// </summary>
+        DateTime PeriodRangeEnd { get; }
+
     }
 }
