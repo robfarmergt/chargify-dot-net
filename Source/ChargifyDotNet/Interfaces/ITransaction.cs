@@ -236,9 +236,17 @@ namespace ChargifyNET
         /// </summary>
         int OriginalAmountInCents { get; }
         /// <summary>
-        /// TaxableAmountInCents
+        /// Original amount
+        /// </summary>
+        int OriginalAmount { get; }
+        /// <summary>
+        /// Taxable amount in cents
         /// </summary>
         int TaxableAmountInCents { get; }
+        /// <summary>
+        /// Taxable amount
+        /// </summary>
+        int TaxableAmount { get; }
 
     }
 }
