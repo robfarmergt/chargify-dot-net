@@ -238,7 +238,7 @@ namespace ChargifyNET
         /// <summary>
         /// Original amount
         /// </summary>
-        int OriginalAmount { get; }
+        decimal OriginalAmount { get; }
         /// <summary>
         /// Taxable amount in cents
         /// </summary>
@@ -246,7 +246,7 @@ namespace ChargifyNET
         /// <summary>
         /// Taxable amount
         /// </summary>
-        int TaxableAmount { get; }
+        decimal TaxableAmount { get; }
 
     }
 }
