@@ -177,6 +177,9 @@ namespace ChargifyNET
                                         case "unit_price":
                                             bracketInfo.UnitPrice = priceObj.GetJSONContentAsDecimal(bracketKey);
                                             break;
+                                        case "price_point_id":
+                                            bracketInfo.PricePointId = priceObj.GetJSONContentAsInt(bracketKey);
+                                            break;
                                     }
                                 }
                                 _prices.Add(bracketInfo);
@@ -253,6 +256,9 @@ namespace ChargifyNET
                                         break;
                                     case "unit_price":
                                         bracketInfo.UnitPrice = bracketNode.GetNodeContentAsDecimal();
+                                        break;
+                                    case "price_point_id":
+                                        bracketInfo.PricePointId = bracketNode.GetNodeContentAsInt();
                                         break;
                                 }
                             }
@@ -441,5 +447,9 @@ namespace ChargifyNET
         /// The unit price for the component
         /// </summary>
         public decimal UnitPrice { get; set; }
+        /// <summary>
+        /// The price point id
+        /// </summary>
+        public int PricePointId { get; set; }
     }
 }

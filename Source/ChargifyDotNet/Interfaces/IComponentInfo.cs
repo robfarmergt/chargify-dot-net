@@ -168,5 +168,10 @@ namespace ChargifyNET
         /// The unit price for the component
         /// </summary>
         decimal UnitPrice { get; set; }
+
+        /// <summary>
+        /// The price point id
+        /// </summary>
+        int PricePointId { get; set; }
     }
 }
