@@ -148,6 +148,36 @@ using Json;
                     case "gateway_order_id":
                         _gatewayOrderId = obj.GetJSONContentAsString(key);
                         break;
+                    case "discount_amount_in_cents":
+                        _discountAmountInCents = obj.GetJSONContentAsInt(key);
+                        break;
+                    case "customer_id":
+                        _customerID = obj.GetJSONContentAsInt(key);
+                        break;
+                    case "period_range_start":
+                        _periodRangeStart = obj.GetJSONContentAsDateTime(key);
+                        break;
+                    case "period_range_end":
+                        _periodRangeEnd = obj.GetJSONContentAsDateTime(key);
+                        break;
+                    case "tax_id":
+                        _taxID = obj.GetJSONContentAsInt(key);
+                        break;
+                    case "component_id":
+                        _componentID = obj.GetJSONContentAsInt(key);
+                        break;
+                    case "statement_id":
+                        _statementId = obj.GetJSONContentAsInt(key);
+                        break;
+                    case "item_name":
+                        _itemName = obj.GetJSONContentAsString(key);
+                        break;
+                    case "original_amount_in_cents":
+                        _originalAmountInCents = obj.GetJSONContentAsInt(key);
+                        break;
+                    case "taxable_amount_in_cents":
+                        _taxableAmountInCents = obj.GetJSONContentAsInt(key);
+                        break;
                 }
             }
         }
@@ -204,6 +234,36 @@ using Json;
                         break;
                     case "gateway_order_id":
                         _gatewayOrderId = dataNode.GetNodeContentAsString();
+                        break;
+                    case "discount_amount_in_cents":
+                        _discountAmountInCents = dataNode.GetNodeContentAsInt();
+                        break;
+                    case "customer_id":
+                        _customerID = dataNode.GetNodeContentAsInt();
+                        break;
+                    case "period_range_start":
+                        _periodRangeStart = dataNode.GetNodeContentAsDateTime();
+                        break;
+                    case "period_range_end":
+                        _periodRangeEnd = dataNode.GetNodeContentAsDateTime();
+                        break;
+                    case "tax_id":
+                        _taxID = dataNode.GetNodeContentAsInt();
+                        break;
+                    case "component_id":
+                        _componentID = dataNode.GetNodeContentAsInt();
+                        break;
+                    case "statement_id":
+                        _statementId = dataNode.GetNodeContentAsInt();
+                        break;
+                    case "item_name":
+                        _itemName = dataNode.GetNodeContentAsString();
+                        break;
+                    case "original_amount_in_cents":
+                        _originalAmountInCents = dataNode.GetNodeContentAsInt();
+                        break;
+                    case "taxable_amount_in_cents":
+                        _taxableAmountInCents = dataNode.GetNodeContentAsInt();
                         break;
                 }
             }
@@ -362,7 +422,121 @@ using Json;
         {
             get { return _gatewayOrderId; }
         }
-        private string _gatewayOrderId = string.Empty;        
+        private string _gatewayOrderId = string.Empty;
+
+        /// <summary>
+        /// The customer ID for the Transaction
+        /// </summary>
+        public int CustomerID
+        {
+            get { return _customerID; }
+        }
+        private int _customerID = int.MinValue;
+
+        /// <summary>
+        /// The discount amount in cents for the Transaction
+        /// </summary>
+        public int DiscountAmountInCents
+        {
+            get { return _discountAmountInCents; }
+        }
+        private int _discountAmountInCents;
+
+        /// <summary>
+        ///  The discount amount (in dollars and cents) for the Transaction
+        /// </summary>
+        public decimal DiscountAmount
+        {
+            get { return Convert.ToDecimal(_discountAmountInCents) / 100; }
+        }
+        
+        /// <summary>
+        /// The start date of the transaction period
+        /// </summary>
+        public DateTime PeriodRangeStart
+        {
+            get { return _periodRangeStart; }
+        }
+        private DateTime _periodRangeStart = DateTime.MinValue;
+
+        /// <summary>
+        /// The end date of the transaction period
+        /// </summary>
+        public DateTime PeriodRangeEnd
+        {
+            get { return _periodRangeEnd; }
+        }
+        private DateTime _periodRangeEnd = DateTime.MinValue;
+
+        /// <summary>
+        /// Tax ID
+        /// </summary>
+        public int TaxID
+        {
+            get { return _taxID; }
+        }
+        private int _taxID = int.MinValue;
+
+        /// <summary>
+        /// Component ID
+        /// </summary>
+        public int ComponentID
+        {
+            get { return _componentID; }
+        }
+        private int _componentID = int.MinValue;
+
+        /// <summary>
+        /// Statement ID
+        /// </summary>
+        public int StatementID
+        {
+            get { return _statementId; }
+        }
+        private int _statementId = int.MinValue;
+
+        /// <summary>
+        /// Item name
+        /// </summary>
+        public string ItemName
+        {
+            get { return _itemName; }
+        }
+        private string _itemName = string.Empty;
+
+        /// <summary>
+        /// The original amount in cents for the Transaction
+        /// </summary>
+        public int OriginalAmountInCents
+        {
+            get { return _originalAmountInCents; }
+        }
+        private int _originalAmountInCents;
+
+        /// <summary>
+        ///  The original amount (in dollars and cents) for the Transaction
+        /// </summary>
+        public decimal OriginalAmount
+        {
+            get { return Convert.ToDecimal(_originalAmountInCents) / 100; }
+        }
+
+        /// <summary>
+        /// The taxable amount in cents for the Transaction
+        /// </summary>
+        public int TaxableAmountInCents
+        {
+            get { return _taxableAmountInCents; }
+        }
+        private int _taxableAmountInCents;
+
+        /// <summary>
+        ///  The taxable amount (in dollars and cents) for the Transaction
+        /// </summary>
+        public decimal TaxableAmount
+        {
+            get { return Convert.ToDecimal(_discountAmountInCents) / 100; }
+        }
 
         #endregion
 

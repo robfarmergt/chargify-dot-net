@@ -76,7 +76,11 @@ namespace ChargifyNET
         /// <summary>
         /// A calculated tax charge
         /// </summary>
-        Tax
+        Tax,
+        /// <summary>
+        /// A charge for a subscription’s trial period.
+        /// </summary>
+        Trial
     }
 
     /// <summary>
@@ -191,6 +195,58 @@ namespace ChargifyNET
         /// The gateway's order ID for this transaction
         /// </summary>
         string GatewayOrderID { get; }
+        /// <summary>
+        /// Customer ID
+        /// </summary>
+        int CustomerID { get; }
+        /// <summary>
+        /// Discount amount
+        /// </summary>
+        decimal DiscountAmount { get; }
+        /// <summary>
+        /// Discount amount in cents
+        /// </summary>
+        int DiscountAmountInCents { get; }
+        /// <summary>
+        /// The start date of the transaction period
+        /// </summary>
+        DateTime PeriodRangeStart { get; }
+        /// <summary>
+        /// The end date of the transaction period
+        /// </summary>
+        DateTime PeriodRangeEnd { get; }
+        /// <summary>
+        /// tax ID
+        /// </summary>
+        int TaxID { get; }
+        /// <summary>
+        /// Component ID
+        /// </summary>
+        int ComponentID { get; }
+        /// <summary>
+        /// Statement ID
+        /// </summary>
+        int StatementID { get; }
+        /// <summary>
+        /// Item name
+        /// </summary>
+        string ItemName { get; }
+        /// <summary>
+        /// Original amount in cents
+        /// </summary>
+        int OriginalAmountInCents { get; }
+        /// <summary>
+        /// Original amount
+        /// </summary>
+        decimal OriginalAmount { get; }
+        /// <summary>
+        /// Taxable amount in cents
+        /// </summary>
+        int TaxableAmountInCents { get; }
+        /// <summary>
+        /// Taxable amount
+        /// </summary>
+        decimal TaxableAmount { get; }
 
     }
 }

@@ -206,32 +206,6 @@ namespace ChargifyNET
 
         #endregion
 
-        #region Metafield
-        /// <summary>
-        /// Returns a list of all metadata for a resource.
-        /// </summary>
-        /// <typeparam name="T">The type of resource. Currently either Subscription or Customer</typeparam>
-        /// <returns>The metadata result containing the response</returns>
-        public IMetafield GetMetafields<T>() where T : ChargifyBase
-        {
-            string response;
-            switch (typeof(T).Name.ToLowerInvariant())
-            {
-                case "customer":
-                    response = DoRequest(string.Format("customers/metafields.{0}", GetMethodExtension()), HttpRequestMethod.Get, null);
-                    break;
-                case "subscription":
-                    response = DoRequest(string.Format("subscriptions/metafields.{0}", GetMethodExtension()), HttpRequestMethod.Get, null);
-                    break;
-                default:
-                    throw new Exception(string.Format("Must be of type '{0}'", string.Join(", ", _metafieldTypes.ToArray())));
-            }
-            // change the response to the object
-            return response.ConvertResponseTo<Metafield>("metafield");
-        }
-        private static List<string> _metafieldTypes = new List<string> { "Customer", "Subscription" };
-        #endregion
-
         #region Metadata
         /// <summary>
         /// Allows you to set a group of metadata for a specific resource
