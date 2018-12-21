@@ -1073,8 +1073,18 @@ namespace ChargifyNET
         /// <returns>A list of product families (keyed by product family id)</returns>
         public IDictionary<int, IProductFamily> GetProductFamilyList()
         {
+            return GetProductFamilyList(false);
+        }
+
+        /// <summary>
+        /// Get a list of product families
+        /// </summary>
+        /// <param name="includeArchived">True if archived families to be included</param>
+        /// <returns>A list of product families (keyed by product family id)</returns>
+        public IDictionary<int, IProductFamily> GetProductFamilyList(bool includeArchived)
+        {
             // now make the request
-            string response = DoRequest(string.Format("product_families.{0}", GetMethodExtension()));
+            string response = DoRequest(string.Format("product_families.{0}?include_archived={1}", GetMethodExtension(), includeArchived ? "1" : "0"));
             // loop through the child nodes of this node
             var retValue = new Dictionary<int, IProductFamily>();
             if (response.IsXml())
