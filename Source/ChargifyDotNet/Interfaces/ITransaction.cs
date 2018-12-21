@@ -210,11 +210,11 @@ namespace ChargifyNET
         /// <summary>
         /// The start date of the transaction period
         /// </summary>
-        DateTime PeriodRangeStart { get; }
+        DateTime? PeriodRangeStart { get; }
         /// <summary>
         /// The end date of the transaction period
         /// </summary>
-        DateTime PeriodRangeEnd { get; }
+        DateTime? PeriodRangeEnd { get; }
         /// <summary>
         /// tax ID
         /// </summary>

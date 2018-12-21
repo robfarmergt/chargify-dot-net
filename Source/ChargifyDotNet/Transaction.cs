@@ -453,20 +453,20 @@ using Json;
         /// <summary>
         /// The start date of the transaction period
         /// </summary>
-        public DateTime PeriodRangeStart
+        public DateTime? PeriodRangeStart
         {
             get { return _periodRangeStart; }
         }
-        private DateTime _periodRangeStart = DateTime.MinValue;
+        private DateTime? _periodRangeStart = null;
 
         /// <summary>
         /// The end date of the transaction period
         /// </summary>
-        public DateTime PeriodRangeEnd
+        public DateTime? PeriodRangeEnd
         {
             get { return _periodRangeEnd; }
         }
-        private DateTime _periodRangeEnd = DateTime.MinValue;
+        private DateTime? _periodRangeEnd = null;
 
         /// <summary>
         /// Tax ID
