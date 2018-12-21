@@ -970,8 +970,18 @@ namespace ChargifyNET
         /// <returns>A list of products (keyed by product handle)</returns>
         public IDictionary<int, IProduct> GetProductList()
         {
+            return GetProductList(false);
+        }
+
+        /// <summary>
+        /// Get a list of products
+        /// </summary>
+        /// <param name="includeArchived">If true, will include archived products.</param>
+        /// <returns>A list of products (keyed by product handle)</returns>
+        public IDictionary<int, IProduct> GetProductList(bool includeArchived)
+        {
             // now make the request
-            string response = DoRequest(string.Format("products.{0}", GetMethodExtension()));
+            string response = DoRequest(string.Format("products.{0}?include_archived={1}", GetMethodExtension(), includeArchived ? "1" : "0"));
             // loop through the child nodes of this node
             var retValue = new Dictionary<int, IProduct>();
             if (response.IsXml())
