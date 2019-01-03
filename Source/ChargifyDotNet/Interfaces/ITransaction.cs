@@ -76,7 +76,19 @@ namespace ChargifyNET
         /// <summary>
         /// A calculated tax charge
         /// </summary>
-        Tax
+        Tax,
+        /// <summary>
+        /// Cancelation
+        /// </summary>
+        Cancelation,
+        /// <summary>
+        /// Voided Invoice
+        /// </summary>
+        Voided_Invoice,
+        /// <summary>
+        /// Reactivation
+        /// </summary>
+        Reactivation
     }
 
     /// <summary>
