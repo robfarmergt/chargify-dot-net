@@ -80,7 +80,19 @@ namespace ChargifyNET
         /// <summary>
         /// A charge for a subscription’s trial period.
         /// </summary>
-        Trial
+        Trial,
+        /// <summary>
+        /// Cancelation
+        /// </summary>
+        Cancelation,
+        /// <summary>
+        /// Voided Invoice
+        /// </summary>
+        Voided_Invoice,
+        /// <summary>
+        /// Reactivation
+        /// </summary>
+        Reactivation
     }
 
     /// <summary>
