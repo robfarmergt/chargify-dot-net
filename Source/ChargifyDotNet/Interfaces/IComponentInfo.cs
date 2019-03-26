@@ -149,6 +149,11 @@ namespace ChargifyNET
         /// Boolean flag describing whether a component is archived or not
         /// </summary>
         bool Archived { get; }
+
+        /// <summary>
+        /// Base fee deferral option
+        /// </summary>
+        DeferralOption BaseFee { get; }
     }
 
     /// <summary>

@@ -955,7 +955,7 @@ namespace ChargifyNET
         public IDictionary<int, IProduct> GetProductList(bool includeArchived)
         {
             // now make the request
-            string response = DoRequest(string.Format("products.{0}?include_archived={1}", GetMethodExtension(), includeArchived ? "1" : "0"));
+            string response = DoRequest(string.Format("products.{0}?include_deferral_settings=true&include_archived={1}", GetMethodExtension(), includeArchived ? "1" : "0"));
             // loop through the child nodes of this node
             var retValue = new Dictionary<int, IProduct>();
             if (response.IsXml())
@@ -4191,7 +4191,7 @@ namespace ChargifyNET
             if (chargifyId == int.MinValue) throw new ArgumentNullException("chargifyId");
 
             // now make the request
-            string response = DoRequest(string.Format("product_families/{0}/components.{1}?include_archived={2}", chargifyId, GetMethodExtension(), includeArchived ? "1" : "0"));
+            string response = DoRequest(string.Format("product_families/{0}/components.{1}?include_deferral_settings=true&include_archived={2}", chargifyId, GetMethodExtension(), includeArchived ? "1" : "0"));
             var retValue = new Dictionary<int, IComponentInfo>();
             if (response.IsXml())
             {
@@ -5092,6 +5092,7 @@ namespace ChargifyNET
             return GetStatementIDs(subscriptionId, int.MinValue, int.MinValue);
         }
 
+
         /// <summary>
         /// Method for getting a list of statment ids for a specific subscription
         /// </summary>
@@ -5106,6 +5107,7 @@ namespace ChargifyNET
             // Add the transaction options to the query string ...
             if (page != int.MinValue) { if (qs.Length > 0) { qs += "&"; } qs += string.Format("page={0}", page); }
             if (perPage != int.MinValue) { if (qs.Length > 0) { qs += "&"; } qs += string.Format("per_page={0}", perPage); }
+            
 
             // Construct the url to access Chargify
             string url = string.Format("subscriptions/{0}/statements/ids.{1}", subscriptionId, GetMethodExtension());
@@ -5187,10 +5189,11 @@ namespace ChargifyNET
         /// <param name="subscriptionId">The ID of the subscription to retrieve the statements for</param>
         /// <param name="page">The page number to return</param>
         /// <param name="perPage">The number of results to return per page</param>
+        /// <param name="ascending">Sort by ascending</param>
         /// <returns>The list of statements, an empty dictionary otherwise.</returns>
-        public IDictionary<int, IStatement> GetStatementList(int subscriptionId, int page, int perPage)
+        public IDictionary<int, IStatement> GetStatementList(int subscriptionId, int page, int perPage, bool ascending = true)
         {
-            string qs = string.Empty;
+            string qs = "sort=created_at&direction=" + (ascending ? "asc" : "desc");
 
             // Add the transaction options to the query string ...
             if (page != int.MinValue) { if (qs.Length > 0) { qs += "&"; } qs += string.Format("page={0}", page); }

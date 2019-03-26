@@ -57,6 +57,7 @@ namespace ChargifyNET
         private const string UnitPriceKey = "unit_price";
         private const string PricesKey = "prices";
         private const string ArchivedKey = "archived";
+        private const string BaseFeeKey = "base_fee";
         #endregion
 
         #region Constructors
@@ -194,6 +195,9 @@ namespace ChargifyNET
                     case ArchivedKey:
                         _archived = obj.GetJSONContentAsBoolean(key);
                         break;
+                    case BaseFeeKey:
+                        _baseFee = obj.GetJSONContentAsEnum<DeferralOption>(key);
+                        break;
                 }
             }
         }
@@ -268,6 +272,9 @@ namespace ChargifyNET
                     case ArchivedKey:
                         _archived = dataNode.GetNodeContentAsBoolean();
                         break;
+                    case BaseFeeKey:
+                        _baseFee = dataNode.GetNodeContentAsEnum<DeferralOption>();
+                            break;
                 }
             }
         }
@@ -398,6 +405,12 @@ namespace ChargifyNET
         /// </summary>
         public bool Archived { get { return _archived; } }
         private bool _archived;
+
+        /// <summary>
+        /// Base fee deferral option
+        /// </summary>
+        public DeferralOption BaseFee { get { return _baseFee; } }
+        private DeferralOption _baseFee;
 
         #endregion
 

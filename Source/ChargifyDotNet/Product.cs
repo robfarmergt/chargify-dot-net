@@ -193,6 +193,15 @@ namespace ChargifyNET
                     case "taxable":
                         _taxable = obj.GetJSONContentAsBoolean(key);
                         break;
+                    case "setup_fee":
+                        _setupFee = obj.GetJSONContentAsEnum<DeferralOption>(key);
+                        break;
+                    case "base_fee":
+                        _baseFee = obj.GetJSONContentAsEnum<DeferralOption>(key);
+                        break;
+                    case "trial_fee":
+                        _trialFee = obj.GetJSONContentAsEnum<DeferralOption>(key);
+                        break;
                 }
             }
         }
@@ -289,6 +298,15 @@ namespace ChargifyNET
                     case "taxable":
                         _taxable = dataNode.GetNodeContentAsBoolean();
                         break;
+                    case "setup_fee":
+                        _setupFee = dataNode.GetNodeContentAsEnum<DeferralOption>();
+                        break;
+                    case "base_fee":
+                        _baseFee = dataNode.GetNodeContentAsEnum<DeferralOption>();
+                        break;
+                    case "trial_fee":
+                        _trialFee = dataNode.GetNodeContentAsEnum<DeferralOption>();
+                         break;
                 }
             }
         }
@@ -661,6 +679,25 @@ namespace ChargifyNET
         /// </summary>
         public bool InitialChargeAfterTrial { get { return _initialChargeAfterTrial; } }
         private bool _initialChargeAfterTrial;
+
+        /// <summary>
+        /// Base fee deferral option
+        /// </summary>
+        public DeferralOption BaseFee { get { return _baseFee; } }
+        private DeferralOption _baseFee;
+
+        /// <summary>
+        /// Setup fee deferral option
+        /// </summary>
+        public DeferralOption SetupFee { get { return _setupFee; } }
+        private DeferralOption _setupFee;
+
+        /// <summary>
+        /// Trial fee deferral option
+        /// </summary>
+        public DeferralOption TrialFee { get { return _trialFee; } }
+        private DeferralOption _trialFee;
+
         #endregion
 
         #region Operators

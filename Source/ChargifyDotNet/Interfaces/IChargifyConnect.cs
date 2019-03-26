@@ -1469,8 +1469,9 @@ namespace ChargifyNET
         /// <param name="SubscriptionID">The ID of the subscription to retrieve the statements for</param>
         /// <param name="page">The page number to return</param>
         /// <param name="per_page">The number of results to return per page</param>
+        /// <param name="ascending">Sort by ascending</param>
         /// <returns>The list of statements, an empty dictionary otherwise.</returns>
-        IDictionary<int, IStatement> GetStatementList(int SubscriptionID, int page, int per_page);
+        IDictionary<int, IStatement> GetStatementList(int SubscriptionID, int page, int per_page, bool ascending);
         #endregion
     }
 }

@@ -60,6 +60,25 @@ using System.Collections.Generic;
     }
 
     /// <summary>
+    /// The interval used for the product
+    /// </summary>
+    public enum DeferralOption
+    {
+        /// <summary>
+        /// Unknown Type
+        /// </summary>
+        Unknown,
+        /// <summary>
+        /// Immediate
+        /// </summary>
+        Immediate,
+        /// <summary>
+        /// Deferred
+        /// </summary>
+        Deferred
+    }
+
+    /// <summary>
     /// Interface representing a product.  Subscriptions will subscribe to a product
     /// </summary>
     public interface IProduct : IComparable<IProductFamily>
@@ -218,5 +237,20 @@ using System.Collections.Generic;
         /// Will the setup/initial charge be processed after the trial?
         /// </summary>
         bool InitialChargeAfterTrial { get; }
+
+        /// <summary>
+        /// Setup fee deferral option
+        /// </summary>
+        DeferralOption SetupFee { get; }
+
+        /// <summary>
+        /// Base fee deferral option
+        /// </summary>
+        DeferralOption BaseFee { get; }
+
+        /// <summary>
+        /// Trial fee deferral option
+        /// </summary>
+        DeferralOption TrialFee { get; }
     }
 }

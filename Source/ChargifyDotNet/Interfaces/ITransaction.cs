@@ -92,7 +92,23 @@ namespace ChargifyNET
         /// <summary>
         /// Reactivation
         /// </summary>
-        Reactivation
+        Reactivation,
+        /// <summary>
+        /// Prorated
+        /// </summary>
+        Prorated,
+        /// <summary>
+        /// Prepayment_Account_Txfr
+        /// </summary>
+        Prepayment_Account_Txfr,
+        /// <summary>
+        /// Credit_Account_Txfr
+        /// </summary>
+        Credit_Account_Txfr,
+        /// <summary>
+        /// Service_Credit_Account_Txfr
+        /// </summary>
+        Service_Credit_Account_Txfr
     }
 
     /// <summary>

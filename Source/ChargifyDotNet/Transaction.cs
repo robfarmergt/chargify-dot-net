@@ -227,7 +227,7 @@ using Json;
                         _paymentId = dataNode.GetNodeContentAsInt();
                         break;
                     case "kind":
-                        _kind = dataNode.GetNodeContentAsEnum<TransactionChargeKind>();
+                        _kind = (dataNode as XmlElement).IsEmpty ? (TransactionChargeKind?)null : dataNode.GetNodeContentAsEnum<TransactionChargeKind>();
                         break;
                     case "gateway_transaction_id":
                         _gatewayTransactionId = dataNode.GetNodeContentAsString();
