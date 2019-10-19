@@ -1067,7 +1067,11 @@
                     JsonString str = obj[key] as JsonString;
                     if (str != null)
                     {
-                        result = (PaymentCollectionMethod) Enum.Parse(typeof(PaymentCollectionMethod), str.Value, true);
+                        try
+                        {
+                            result = (PaymentCollectionMethod)Enum.Parse(typeof(PaymentCollectionMethod), str.Value, true);
+                        }
+                        catch { }
                     }
                 }
             }
@@ -1124,7 +1128,11 @@
             PaymentCollectionMethod result = PaymentCollectionMethod.Unknown;
             if (node.FirstChild != null)
             {
-                result = (PaymentCollectionMethod) Enum.Parse(typeof(PaymentCollectionMethod), node.FirstChild.Value, true);
+                try
+                {
+                    result = (PaymentCollectionMethod)Enum.Parse(typeof(PaymentCollectionMethod), node.FirstChild.Value, true);
+                }
+                catch { }
             }
             return result;
         }
@@ -1139,7 +1147,11 @@
             SubscriptionState result = SubscriptionState.Unknown;
             if (node.FirstChild != null)
             {
-                result = (SubscriptionState) Enum.Parse(typeof(SubscriptionState), node.FirstChild.Value, true);
+                try
+                {
+                    result = (SubscriptionState)Enum.Parse(typeof(SubscriptionState), node.FirstChild.Value, true);
+                }
+                catch { }
             }
             return result;
         }

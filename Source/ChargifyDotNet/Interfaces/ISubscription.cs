@@ -52,6 +52,11 @@ namespace ChargifyNET
         [XmlEnum("invoice")]
         Invoice,
         /// <summary>
+        /// Invoices are issued to users, paid and organized by staff
+        /// </summary>
+        [XmlEnum("remittance")]
+        Remittance,
+        /// <summary>
         /// The default state if the value could not be parsed, or wasn't sent.
         /// </summary>
         [XmlIgnore]
@@ -116,6 +121,10 @@ namespace ChargifyNET
         /// Subscription is 'paused', no further processing
         /// </summary>
         On_Hold,
+        /// <summary>
+        /// Subscription is 'paused', no further processing
+        /// </summary>
+        Paused,
         /// <summary>
         /// The 'unknown' subscription state, only internal to this wrapper
         /// </summary>
