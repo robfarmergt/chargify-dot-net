@@ -108,7 +108,11 @@ namespace ChargifyNET
         /// <summary>
         /// Service_Credit_Account_Txfr
         /// </summary>
-        Service_Credit_Account_Txfr
+        Service_Credit_Account_Txfr,
+        /// <summary>
+        /// Event_Based_Component
+        /// </summary>
+        Event_Based_Component
     }
 
     /// <summary>
