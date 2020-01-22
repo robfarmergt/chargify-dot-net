@@ -54,6 +54,10 @@ namespace ChargifyNET
         /// </summary>
         On_Off_Component,
         /// <summary>
+        /// Event Based Component
+        /// </summary>
+        Event_Based_Component,
+        /// <summary>
         /// Unknown Transaction Type
         /// </summary>
         Unknown = -1
