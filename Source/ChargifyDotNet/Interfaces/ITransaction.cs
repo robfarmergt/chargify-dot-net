@@ -112,7 +112,11 @@ namespace ChargifyNET
         /// <summary>
         /// Event_Based_Component
         /// </summary>
-        Event_Based_Component
+        Event_Based_Component,
+        /// <summary>
+        /// Prepaid_Usage_Component
+        /// </summary>
+        Prepaid_Usage_Component,
     }
 
     /// <summary>
@@ -279,6 +283,14 @@ namespace ChargifyNET
         /// Taxable amount
         /// </summary>
         decimal TaxableAmount { get; }
+        /// <summary>
+        /// Exchange rate
+        /// </summary>
+        decimal ExchangeRate { get; }
+        /// <summary>
+        /// Currency
+        /// </summary>
+        string Currency { get; }
 
     }
 }

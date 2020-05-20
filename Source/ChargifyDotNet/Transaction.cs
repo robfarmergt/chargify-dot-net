@@ -178,6 +178,12 @@ using Json;
                     case "taxable_amount_in_cents":
                         _taxableAmountInCents = obj.GetJSONContentAsInt(key);
                         break;
+                    case "exchange_rate":
+                        _exchangeRate = obj.GetJSONContentAsDecimal(key);
+                        break;
+                    case "currency":
+                        _currency = obj.GetJSONContentAsString(key);
+                        break;
                 }
             }
         }
@@ -264,6 +270,12 @@ using Json;
                         break;
                     case "taxable_amount_in_cents":
                         _taxableAmountInCents = dataNode.GetNodeContentAsInt();
+                        break;
+                    case "exchange_rate":
+                        _exchangeRate = dataNode.GetNodeContentAsDecimal();
+                        break;
+                    case "currency":
+                        _currency = dataNode.GetNodeContentAsString();
                         break;
                 }
             }
@@ -537,6 +549,24 @@ using Json;
         {
             get { return Convert.ToDecimal(_discountAmountInCents) / 100; }
         }
+
+        /// <summary>
+        ///  The exchange rate
+        /// </summary>
+        public decimal ExchangeRate
+        {
+            get { return _exchangeRate; }
+        }
+        private decimal _exchangeRate;
+
+        /// <summary>
+        ///  The taxable amount (in dollars and cents) for the Transaction
+        /// </summary>
+        public string Currency
+        {
+            get { return _currency; }
+        }
+        private string _currency;
 
         #endregion
 

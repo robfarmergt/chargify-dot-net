@@ -58,6 +58,10 @@ namespace ChargifyNET
         /// </summary>
         Event_Based_Component,
         /// <summary>
+        /// Prepaid_Usage_Component
+        /// </summary>
+        Prepaid_Usage_Component,
+        /// <summary>
         /// Unknown Transaction Type
         /// </summary>
         Unknown = -1
